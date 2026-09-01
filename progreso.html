@@ -72,6 +72,10 @@
   .age-block { margin: 10px 0 4px; padding-top: 10px; border-top: 1px dashed var(--line); }
   .age-title { font-size: 11px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 4px; }
 
+  .age-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 4px 10px; margin-top: 8px; }
+  .age-cell { display:flex; justify-content: space-between; font-size: 11px; color: var(--ink-soft); }
+  .age-cell strong { color: var(--ink); font-family: ui-monospace, Menlo, monospace; font-weight: 600; }
+
   .students { margin-top: 12px; display: grid; gap: 8px; }
   .student-card {
     background: var(--sub-bg); border: 1px solid var(--line); border-radius: 8px;
@@ -134,6 +138,12 @@ function studentCard(e) {
       <div class="student-count">${e.casos_validos} caso(s) válido(s)</div>
       ${meterRow('Varones', e.varones, e.meta_varones, 'a')}
       ${meterRow('Mujeres', e.mujeres, e.meta_mujeres, 'b')}
+      <div class="age-grid">
+        <span class="age-cell">Hombres 18 a 30 <strong>${e.varones_18_30}</strong></span>
+        <span class="age-cell">Mujeres 18 a 30 <strong>${e.mujeres_18_30}</strong></span>
+        <span class="age-cell">Hombres 31 o más <strong>${e.varones_31_mas}</strong></span>
+        <span class="age-cell">Mujeres 31 o más <strong>${e.mujeres_31_mas}</strong></span>
+      </div>
     </div>
   `;
 }

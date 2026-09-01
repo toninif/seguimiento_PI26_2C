@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-01 17:52",
+  "actualizado": "2026-09-01 18:09",
   "meta_por_estudiante": 20,
   "total_casos_validos": 187,
   "total_meta": 420,
@@ -26,6 +26,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 8,
           "faltan_mujeres": 1,
+          "varones_18_30": 1,
+          "varones_31_mas": 1,
+          "mujeres_18_30": 4,
+          "mujeres_31_mas": 5,
           "completo": false
         }
       ]
@@ -52,6 +56,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 10,
           "faltan_mujeres": 9,
+          "varones_18_30": 0,
+          "varones_31_mas": 0,
+          "mujeres_18_30": 0,
+          "mujeres_31_mas": 1,
           "completo": false
         },
         {
@@ -63,6 +71,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 10,
           "faltan_mujeres": 10,
+          "varones_18_30": 0,
+          "varones_31_mas": 0,
+          "mujeres_18_30": 0,
+          "mujeres_31_mas": 0,
           "completo": false
         },
         {
@@ -74,6 +86,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 10,
           "faltan_mujeres": 9,
+          "varones_18_30": 0,
+          "varones_31_mas": 0,
+          "mujeres_18_30": 1,
+          "mujeres_31_mas": 0,
           "completo": false
         },
         {
@@ -85,6 +101,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 6,
           "faltan_mujeres": 0,
+          "varones_18_30": 2,
+          "varones_31_mas": 2,
+          "mujeres_18_30": 6,
+          "mujeres_31_mas": 11,
           "completo": false
         },
         {
@@ -96,6 +116,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 5,
           "faltan_mujeres": 6,
+          "varones_18_30": 4,
+          "varones_31_mas": 1,
+          "mujeres_18_30": 3,
+          "mujeres_31_mas": 1,
           "completo": false
         }
       ]
@@ -122,6 +146,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 5,
           "faltan_mujeres": 2,
+          "varones_18_30": 3,
+          "varones_31_mas": 2,
+          "mujeres_18_30": 3,
+          "mujeres_31_mas": 5,
           "completo": false
         },
         {
@@ -133,6 +161,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 2,
           "faltan_mujeres": 6,
+          "varones_18_30": 2,
+          "varones_31_mas": 6,
+          "mujeres_18_30": 1,
+          "mujeres_31_mas": 3,
           "completo": false
         },
         {
@@ -144,6 +176,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 2,
           "faltan_mujeres": 2,
+          "varones_18_30": 3,
+          "varones_31_mas": 5,
+          "mujeres_18_30": 6,
+          "mujeres_31_mas": 2,
           "completo": false
         },
         {
@@ -155,6 +191,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 7,
           "faltan_mujeres": 4,
+          "varones_18_30": 1,
+          "varones_31_mas": 2,
+          "mujeres_18_30": 2,
+          "mujeres_31_mas": 4,
           "completo": false
         },
         {
@@ -166,6 +206,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 5,
           "faltan_mujeres": 9,
+          "varones_18_30": 2,
+          "varones_31_mas": 3,
+          "mujeres_18_30": 0,
+          "mujeres_31_mas": 1,
           "completo": false
         }
       ]
@@ -192,6 +236,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 8,
           "faltan_mujeres": 3,
+          "varones_18_30": 0,
+          "varones_31_mas": 2,
+          "mujeres_18_30": 2,
+          "mujeres_31_mas": 5,
           "completo": false
         },
         {
@@ -203,6 +251,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 8,
           "faltan_mujeres": 9,
+          "varones_18_30": 1,
+          "varones_31_mas": 1,
+          "mujeres_18_30": 1,
+          "mujeres_31_mas": 0,
           "completo": false
         },
         {
@@ -214,6 +266,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 4,
           "faltan_mujeres": 0,
+          "varones_18_30": 3,
+          "varones_31_mas": 3,
+          "mujeres_18_30": 0,
+          "mujeres_31_mas": 17,
           "completo": false
         },
         {
@@ -225,6 +281,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 1,
           "faltan_mujeres": 1,
+          "varones_18_30": 2,
+          "varones_31_mas": 7,
+          "mujeres_18_30": 2,
+          "mujeres_31_mas": 7,
           "completo": false
         },
         {
@@ -236,6 +296,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 9,
           "faltan_mujeres": 7,
+          "varones_18_30": 1,
+          "varones_31_mas": 0,
+          "mujeres_18_30": 2,
+          "mujeres_31_mas": 1,
           "completo": false
         }
       ]
@@ -262,6 +326,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 10,
           "faltan_mujeres": 10,
+          "varones_18_30": 0,
+          "varones_31_mas": 0,
+          "mujeres_18_30": 0,
+          "mujeres_31_mas": 0,
           "completo": false
         },
         {
@@ -273,6 +341,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 10,
           "faltan_mujeres": 10,
+          "varones_18_30": 0,
+          "varones_31_mas": 0,
+          "mujeres_18_30": 0,
+          "mujeres_31_mas": 0,
           "completo": false
         },
         {
@@ -284,6 +356,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 7,
           "faltan_mujeres": 2,
+          "varones_18_30": 0,
+          "varones_31_mas": 3,
+          "mujeres_18_30": 2,
+          "mujeres_31_mas": 6,
           "completo": false
         },
         {
@@ -295,6 +371,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 8,
           "faltan_mujeres": 7,
+          "varones_18_30": 0,
+          "varones_31_mas": 2,
+          "mujeres_18_30": 0,
+          "mujeres_31_mas": 3,
           "completo": false
         },
         {
@@ -306,6 +386,10 @@
           "meta_mujeres": 10,
           "faltan_varones": 3,
           "faltan_mujeres": 4,
+          "varones_18_30": 4,
+          "varones_31_mas": 3,
+          "mujeres_18_30": 4,
+          "mujeres_31_mas": 2,
           "completo": false
         }
       ]
