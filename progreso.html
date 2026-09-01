@@ -53,6 +53,14 @@
   .badge.ok { background: var(--ok-bg); color: var(--ok); }
   .badge.pend { background: var(--pend-bg); color: var(--pend); }
 
+  .toggle-btn {
+    font-size: 12px; font-weight: 600; color: var(--ink-soft);
+    background: var(--sub-bg); border: 1px solid var(--line); border-radius: 6px;
+    padding: 5px 10px; cursor: pointer; margin-top: 10px;
+  }
+  .toggle-btn:hover { color: var(--ink); border-color: var(--ink-soft); }
+  .group-details[hidden] { display: none; }
+
   .meter-row { display:grid; grid-template-columns: 64px 1fr 46px; align-items:center; gap:8px; margin-top:6px; }
   .meter-label { font-size: 11px; color: var(--ink-soft); }
   .meter-track { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
@@ -141,16 +149,29 @@ function groupCard(g) {
     <div class="group-count"><strong>${g.casos_validos}</strong> / ${g.meta} casos válidos · ${g.n_estudiantes} alumno(s)</div>
     <div class="bar-track"><div class="bar-fill" style="width:${g.meta > 0 ? Math.min(100, Math.round(100 * g.casos_validos / g.meta)) : 0}%"></div></div>
 
-    <div class="age-block">
-      <div class="age-title">Rango etario</div>
-      ${meterRow('18 a 30', g.edad_18_30, g.meta_edad, 'a')}
-      ${meterRow('31 o más', g.edad_31_mas, g.meta_edad, 'b')}
-    </div>
+    <button type="button" class="toggle-btn">Mostrar detalle</button>
 
-    <div class="students">
-      ${g.estudiantes.map(studentCard).join('')}
+    <div class="group-details" hidden>
+      <div class="age-block">
+        <div class="age-title">Rango etario</div>
+        ${meterRow('18 a 30', g.edad_18_30, g.meta_edad, 'a')}
+        ${meterRow('31 o más', g.edad_31_mas, g.meta_edad, 'b')}
+      </div>
+
+      <div class="students">
+        ${g.estudiantes.map(studentCard).join('')}
+      </div>
     </div>
   `;
+
+  const btn = card.querySelector('.toggle-btn');
+  const details = card.querySelector('.group-details');
+  btn.addEventListener('click', () => {
+    const abierto = !details.hidden;
+    details.hidden = abierto;
+    btn.textContent = abierto ? 'Mostrar detalle' : 'Ocultar detalle';
+  });
+
   return card;
 }
 
