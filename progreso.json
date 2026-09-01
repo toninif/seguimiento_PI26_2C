@@ -1,0 +1,43 @@
+{
+  "actualizado": "2026-09-01 16:55",
+  "meta_por_grupo": 20,
+  "total_casos_validos": 206,
+  "total_meta": 100,
+  "grupos": [
+    {
+      "grupo": 0,
+      "casos_validos": 12,
+      "meta": 20,
+      "faltan": 8,
+      "completo": false
+    },
+    {
+      "grupo": 1,
+      "casos_validos": 34,
+      "meta": 20,
+      "faltan": 0,
+      "completo": true
+    },
+    {
+      "grupo": 2,
+      "casos_validos": 65,
+      "meta": 20,
+      "faltan": 0,
+      "completo": true
+    },
+    {
+      "grupo": 3,
+      "casos_validos": 66,
+      "meta": 20,
+      "faltan": 0,
+      "completo": true
+    },
+    {
+      "grupo": 4,
+      "casos_validos": 29,
+      "meta": 20,
+      "faltan": 0,
+      "completo": true
+    }
+  ]
+}

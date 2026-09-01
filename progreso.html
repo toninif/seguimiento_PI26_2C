@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seguimiento de casos válidos</title>
+<style>
+  :root{
+    --bg:#F4F5F2;
+    --ink:#20262B;
+    --ink-soft:#5B6570;
+    --line:#D8DBD6;
+    --ok:#1F6F63;
+    --ok-bg:#E3EEE9;
+    --pend:#B8752B;
+    --pend-bg:#F3E7D6;
+    --card:#FFFFFF;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    padding: 32px 20px 60px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  header { margin-bottom: 28px; }
+  h1 { font-size: 20px; font-weight: 600; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .updated { font-size: 13px; color: var(--ink-soft); font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; }
+
+  .total-card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 20px; margin-bottom: 24px;
+  }
+  .total-numbers { display:flex; align-items:baseline; gap:8px; margin-bottom: 10px; }
+  .total-numbers .big { font-family: ui-monospace, Menlo, monospace; font-size: 32px; font-weight: 600; }
+  .total-numbers .of { font-size: 15px; color: var(--ink-soft); }
+  .bar-track { height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .bar-fill { height: 100%; background: var(--ok); border-radius: 4px; transition: width .4s ease; }
+
+  .groups { display: grid; gap: 12px; }
+  .group-card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .group-top { display:flex; justify-content: space-between; align-items:center; margin-bottom: 8px; gap: 8px; }
+  .group-name { font-weight: 600; font-size: 14px; }
+  .group-count { font-family: ui-monospace, Menlo, monospace; font-size: 13px; color: var(--ink-soft); margin-bottom: 8px; }
+  .group-count strong { color: var(--ink); }
+  .badge { font-size: 11px; padding: 2px 8px; border-radius: 999px; font-weight: 600; white-space: nowrap; }
+  .badge.ok { background: var(--ok-bg); color: var(--ok); }
+  .badge.pend { background: var(--pend-bg); color: var(--pend); }
+
+  .ticks { display:flex; gap: 3px; flex-wrap: wrap; }
+  .tick { width: 12px; height: 12px; border-radius: 2px; background: var(--line); }
+  .tick.filled { background: var(--ok); }
+  .group-card.pend .tick.filled { background: var(--pend); }
+
+  .empty { text-align:center; color: var(--ink-soft); padding: 40px 0; font-size: 14px; }
+  footer { text-align:center; font-size: 12px; color: var(--ink-soft); margin-top: 32px; }
+
+  @media (max-width: 420px){ .tick{ width:9px; height:9px; } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Seguimiento de casos válidos</h1>
+      <div class="updated" id="actualizado">Cargando…</div>
+    </header>
+
+    <div class="total-card">
+      <div class="total-numbers">
+        <span class="big" id="total-validos">–</span>
+        <span class="of" id="total-meta">de – casos válidos en total</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill" id="total-bar" style="width:0%"></div></div>
+    </div>
+
+    <div class="groups" id="groups"></div>
+    <div class="empty" id="empty" style="display:none">No se pudo cargar el progreso todavía.</div>
+
+    <footer>Se actualiza cada vez que se sube una nueva medición.</footer>
+  </div>
+
+<script>
+fetch('progreso.json?_=' + Date.now())
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById('actualizado').textContent = 'Actualizado: ' + data.actualizado;
+    document.getElementById('total-validos').textContent = data.total_casos_validos;
+    document.getElementById('total-meta').textContent = 'de ' + data.total_meta + ' casos válidos en total';
+    const pct = Math.min(100, Math.round(100 * data.total_casos_validos / data.total_meta));
+    document.getElementById('total-bar').style.width = pct + '%';
+
+    const cont = document.getElementById('groups');
+    data.grupos.forEach(g => {
+      const card = document.createElement('div');
+      card.className = 'group-card' + (g.completo ? '' : ' pend');
+
+      const ticks = Array.from({length: g.meta}, (_, i) =>
+        `<span class="tick${i < g.casos_validos ? ' filled' : ''}"></span>`
+      ).join('');
+
+      card.innerHTML = `
+        <div class="group-top">
+          <span class="group-name">${g.grupo}</span>
+          <span class="badge ${g.completo ? 'ok' : 'pend'}">${g.completo ? 'Completo' : g.faltan + ' por conseguir'}</span>
+        </div>
+        <div class="group-count"><strong>${g.casos_validos}</strong> / ${g.meta} casos válidos</div>
+        <div class="ticks">${ticks}</div>
+      `;
+      cont.appendChild(card);
+    });
+  })
+  .catch(() => {
+    document.getElementById('empty').style.display = 'block';
+  });
+</script>
+</body>
+</html>
