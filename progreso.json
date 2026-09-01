@@ -1,43 +1,314 @@
 {
-  "actualizado": "2026-09-01 16:55",
-  "meta_por_grupo": 20,
+  "actualizado": "2026-09-01 17:06",
+  "meta_por_estudiante": 20,
   "total_casos_validos": 206,
-  "total_meta": 100,
+  "total_meta": 420,
   "grupos": [
     {
       "grupo": 0,
+      "n_estudiantes": 1,
       "casos_validos": 12,
+      "edad_18_30": 5,
+      "edad_31_mas": 7,
       "meta": 20,
+      "meta_edad": 10,
       "faltan": 8,
-      "completo": false
+      "faltan_18_30": 5,
+      "faltan_31_mas": 3,
+      "completo": false,
+      "estudiantes": [
+        {
+          "nombre": "PEDRO JAUREGUIALZO",
+          "casos_validos": 12,
+          "varones": 2,
+          "mujeres": 10,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 8,
+          "faltan_mujeres": 0,
+          "completo": false
+        }
+      ]
     },
     {
       "grupo": 1,
+      "n_estudiantes": 5,
       "casos_validos": 34,
-      "meta": 20,
-      "faltan": 0,
-      "completo": true
+      "edad_18_30": 18,
+      "edad_31_mas": 16,
+      "meta": 100,
+      "meta_edad": 50,
+      "faltan": 66,
+      "faltan_18_30": 32,
+      "faltan_31_mas": 34,
+      "completo": false,
+      "estudiantes": [
+        {
+          "nombre": "Daniel Gonzalez Adamo",
+          "casos_validos": 1,
+          "varones": 0,
+          "mujeres": 1,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 10,
+          "faltan_mujeres": 9,
+          "completo": false
+        },
+        {
+          "nombre": "Juan Castillo",
+          "casos_validos": 0,
+          "varones": 0,
+          "mujeres": 0,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 10,
+          "faltan_mujeres": 10,
+          "completo": false
+        },
+        {
+          "nombre": "Milagros Barchuk Pedraza",
+          "casos_validos": 1,
+          "varones": 0,
+          "mujeres": 1,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 10,
+          "faltan_mujeres": 9,
+          "completo": false
+        },
+        {
+          "nombre": "Milagros Dos Santos",
+          "casos_validos": 22,
+          "varones": 5,
+          "mujeres": 17,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 5,
+          "faltan_mujeres": 0,
+          "completo": false
+        },
+        {
+          "nombre": "Belen Gini Blasco",
+          "casos_validos": 10,
+          "varones": 6,
+          "mujeres": 4,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 4,
+          "faltan_mujeres": 6,
+          "completo": false
+        }
+      ]
     },
     {
       "grupo": 2,
+      "n_estudiantes": 5,
       "casos_validos": 65,
-      "meta": 20,
-      "faltan": 0,
-      "completo": true
+      "edad_18_30": 25,
+      "edad_31_mas": 40,
+      "meta": 100,
+      "meta_edad": 50,
+      "faltan": 35,
+      "faltan_18_30": 25,
+      "faltan_31_mas": 10,
+      "completo": false,
+      "estudiantes": [
+        {
+          "nombre": "Merlina Celeste Rodriguez Pergamo",
+          "casos_validos": 17,
+          "varones": 6,
+          "mujeres": 11,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 4,
+          "faltan_mujeres": 0,
+          "completo": false
+        },
+        {
+          "nombre": "Francisco Minelli de Zavaleta",
+          "casos_validos": 13,
+          "varones": 8,
+          "mujeres": 4,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 2,
+          "faltan_mujeres": 6,
+          "completo": false
+        },
+        {
+          "nombre": "Sabrina Spagnuolo",
+          "casos_validos": 17,
+          "varones": 9,
+          "mujeres": 8,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 1,
+          "faltan_mujeres": 2,
+          "completo": false
+        },
+        {
+          "nombre": "Maria Victoria Landerreche",
+          "casos_validos": 10,
+          "varones": 3,
+          "mujeres": 7,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 7,
+          "faltan_mujeres": 3,
+          "completo": false
+        },
+        {
+          "nombre": "María Fernanda Bellocq",
+          "casos_validos": 8,
+          "varones": 5,
+          "mujeres": 2,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 5,
+          "faltan_mujeres": 8,
+          "completo": false
+        }
+      ]
     },
     {
       "grupo": 3,
+      "n_estudiantes": 5,
       "casos_validos": 66,
-      "meta": 20,
-      "faltan": 0,
-      "completo": true
+      "edad_18_30": 15,
+      "edad_31_mas": 51,
+      "meta": 100,
+      "meta_edad": 50,
+      "faltan": 34,
+      "faltan_18_30": 35,
+      "faltan_31_mas": 0,
+      "completo": false,
+      "estudiantes": [
+        {
+          "nombre": "Norma Baratta",
+          "casos_validos": 13,
+          "varones": 3,
+          "mujeres": 10,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 7,
+          "faltan_mujeres": 0,
+          "completo": false
+        },
+        {
+          "nombre": "Sofia Tiferes",
+          "casos_validos": 3,
+          "varones": 2,
+          "mujeres": 1,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 8,
+          "faltan_mujeres": 9,
+          "completo": false
+        },
+        {
+          "nombre": "Aldana Burgos",
+          "casos_validos": 24,
+          "varones": 6,
+          "mujeres": 18,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 4,
+          "faltan_mujeres": 0,
+          "completo": false
+        },
+        {
+          "nombre": "Jorge Legarreta",
+          "casos_validos": 21,
+          "varones": 10,
+          "mujeres": 11,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 0,
+          "faltan_mujeres": 0,
+          "completo": true
+        },
+        {
+          "nombre": "Mayte Escalante Terrazas",
+          "casos_validos": 5,
+          "varones": 1,
+          "mujeres": 4,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 9,
+          "faltan_mujeres": 6,
+          "completo": false
+        }
+      ]
     },
     {
       "grupo": 4,
+      "n_estudiantes": 5,
       "casos_validos": 29,
-      "meta": 20,
-      "faltan": 0,
-      "completo": true
+      "edad_18_30": 10,
+      "edad_31_mas": 19,
+      "meta": 100,
+      "meta_edad": 50,
+      "faltan": 71,
+      "faltan_18_30": 40,
+      "faltan_31_mas": 31,
+      "completo": false,
+      "estudiantes": [
+        {
+          "nombre": "Luis Iván Cruces Sáez",
+          "casos_validos": 0,
+          "varones": 0,
+          "mujeres": 0,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 10,
+          "faltan_mujeres": 10,
+          "completo": false
+        },
+        {
+          "nombre": "Monserrat Sanchez Ponce",
+          "casos_validos": 0,
+          "varones": 0,
+          "mujeres": 0,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 10,
+          "faltan_mujeres": 10,
+          "completo": false
+        },
+        {
+          "nombre": "Erika Rodriguez",
+          "casos_validos": 11,
+          "varones": 3,
+          "mujeres": 8,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 7,
+          "faltan_mujeres": 2,
+          "completo": false
+        },
+        {
+          "nombre": "Guadalupe Velazco",
+          "casos_validos": 5,
+          "varones": 2,
+          "mujeres": 3,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 8,
+          "faltan_mujeres": 7,
+          "completo": false
+        },
+        {
+          "nombre": "Lucila Alvarado Alegre",
+          "casos_validos": 13,
+          "varones": 7,
+          "mujeres": 6,
+          "meta_varones": 10,
+          "meta_mujeres": 10,
+          "faltan_varones": 3,
+          "faltan_mujeres": 4,
+          "completo": false
+        }
+      ]
     }
   ]
 }
