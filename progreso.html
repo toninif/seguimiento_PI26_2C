@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seguimiento de casos válidos</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Seguimiento de casos válidos</h1>
+      <div class="updated" id="actualizado">Cargando…</div>
+    </header>
+
+    <div class="total-card">
+      <div class="total-numbers">
+        <span class="big" id="total-validos">–</span>
+        <span class="of" id="total-meta">de – casos válidos en total</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill" id="total-bar" style="width:0%"></div></div>
+    </div>
+
+    <div class="groups" id="groups"></div>
+    <div class="empty" id="empty" style="display:none">No se pudo cargar el progreso todavía.</div>
+
+    <footer>Se actualiza cada vez que se sube una nueva medición.</footer>
+  </div>
+
+<script>
+function meterRow(label, n, meta, cls) {
+  const pct = meta > 0 ? Math.min(100, Math.round(100 * n / meta)) : 0;
+  return `
+    <div class="meter-row">
+      <span class="meter-label">${label}</span>
+      <div class="meter-track"><div class="meter-fill ${cls}" style="width:${pct}%"></div></div>
+      <span class="meter-num">${n}/${meta}</span>
+    </div>
+  `;
+}
+
+const CONFETTI_COLORS = ['var(--green)', 'var(--orange)', 'var(--blue)', 'var(--ink)'];
+
+function celebrate(el) {
+  if (!el || el.dataset.celebrated) return;
+  el.dataset.celebrated = '1';
+  const layer = document.createElement('div');
+  layer.className = 'confetti-layer';
+  const updateFallDistance = () => {
+    const height = el.getBoundingClientRect().height;
+    if (height) layer.style.setProperty('--fall-distance', Math.ceil(height + 24) + 'px');
+  };
+
+  for (let i = 0; i < 36; i++) {
+    const p = document.createElement('span');
+    p.className = 'confetti-piece';
+    const duration = 2600 + Math.random() * 1600;
+    p.style.left = (Math.random() * 100) + '%';
+    p.style.background = CONFETTI_COLORS[i % CONFETTI_COLORS.length];
+    p.style.setProperty('--dx', (Math.random() * 60 - 30).toFixed(0) + 'px');
+    p.style.setProperty('--rot', (360 + Math.random() * 360).toFixed(0) + 'deg');
+    p.style.animationDelay = (-Math.random() * duration).toFixed(0) + 'ms';
+    p.style.animationDuration = duration.toFixed(0) + 'ms';
+    layer.appendChild(p);
+  }
+  el.appendChild(layer);
+  requestAnimationFrame(updateFallDistance);
+  if ('ResizeObserver' in window) new ResizeObserver(updateFallDistance).observe(el);
+}
+
+function studentCard(e) {
+  const completo = e.completo;
+  return `
+    <div class="student-card${completo ? ' is-complete' : ''}">
+      <div class="student-top">
+        <span class="student-name">${e.nombre}</span>
+        <span class="badge small ${completo ? 'ok' : 'pend'}">${completo ? 'Completo' : `${e.faltan_varones + e.faltan_mujeres} por conseguir`}</span>
+      </div>
+      <div class="student-count">${e.casos_validos} caso(s) válido(s)</div>
+      ${meterRow('Varones', e.varones, e.meta_varones, 'a')}
+      ${meterRow('Mujeres', e.mujeres, e.meta_mujeres, 'b')}
+      <div class="age-grid">
+        <span class="age-cell">Hombres 18 a 30 <strong>${e.varones_18_30}</strong></span>
+        <span class="age-cell">Mujeres 18 a 30 <strong>${e.mujeres_18_30}</strong></span>
+        <span class="age-cell">Hombres 31 o más <strong>${e.varones_31_mas}</strong></span>
+        <span class="age-cell">Mujeres 31 o más <strong>${e.mujeres_31_mas}</strong></span>
+      </div>
+    </div>
+  `;
+}
+
+function groupCard(g) {
+  const card = document.createElement('div');
+  card.className = 'group-card' + (g.completo ? '' : ' pend');
+  card.innerHTML = `
+    <div class="group-top">
+      <span class="group-name">Grupo ${g.grupo}</span>
+      <span class="badge ${g.completo ? 'ok' : 'pend'}">${g.completo ? 'Completo' : `${g.faltan} por conseguir`}</span>
+    </div>
+    <div class="group-count"><strong>${g.casos_validos}</strong> / ${g.meta} casos válidos · ${g.n_estudiantes} alumno(s)</div>
+    <div class="bar-track"><div class="bar-fill" style="width:${g.meta > 0 ? Math.min(100, Math.round(100 * g.casos_validos / g.meta)) : 0}%"></div></div>
+
+    <button type="button" class="toggle-btn">Mostrar detalle</button>
+
+    <div class="group-details" hidden>
+      <div class="age-block">
+        <div class="age-title">Rango etario</div>
+        ${meterRow('18 a 30', g.edad_18_30, g.meta_edad, 'a')}
+        ${meterRow('31 o más', g.edad_31_mas, g.meta_edad, 'b')}
+      </div>
+
+      <div class="students">
+        ${g.estudiantes.map(studentCard).join('')}
+      </div>
+    </div>
+  `;
+
+  const btn = card.querySelector('.toggle-btn');
+  const details = card.querySelector('.group-details');
+  btn.addEventListener('click', () => {
+    const abierto = !details.hidden;
+    details.hidden = abierto;
+    btn.textContent = abierto ? 'Mostrar detalle' : 'Ocultar detalle';
+    if (!details.hidden) {
+      details.querySelectorAll('.student-card.is-complete').forEach(celebrate);
+    }
+  });
+
+  if (g.completo) celebrate(card);
+
+  return card;
+}
+
+fetch('progreso.json?_=' + Date.now())
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById('actualizado').textContent = 'Actualizado: ' + data.actualizado;
+    document.getElementById('total-validos').textContent = data.total_casos_validos;
+    document.getElementById('total-meta').textContent = 'de ' + data.total_meta + ' casos válidos en total';
+    const pct = Math.min(100, Math.round(100 * data.total_casos_validos / data.total_meta));
+    document.getElementById('total-bar').style.width = pct + '%';
+
+    const cont = document.getElementById('groups');
+    data.grupos.forEach(g => cont.appendChild(groupCard(g)));
+  })
+  .catch(() => {
+    document.getElementById('empty').style.display = 'block';
+  });
+</script>
+</body>
+</html>
