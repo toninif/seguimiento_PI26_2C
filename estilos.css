@@ -98,6 +98,17 @@ h1{
   transition:width .35s ease;
 }
 
+.total-card.is-complete .bar-fill{background:var(--green)}
+
+.total-complete-message{
+  grid-column:1 / -1;
+  margin-top:-8px;
+  color:var(--green);
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:-.01em;
+}
+
 .groups{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
@@ -293,6 +304,11 @@ h1{
   pointer-events:none;
   z-index:2;
   contain:layout paint;
+}
+
+.confetti-layer-global{
+  position:fixed;
+  z-index:10;
 }
 
 .confetti-piece{

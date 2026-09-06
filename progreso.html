@@ -68,6 +68,32 @@ function celebrate(el) {
   if ('ResizeObserver' in window) new ResizeObserver(updateFallDistance).observe(el);
 }
 
+function celebrateTotal() {
+  if (document.body.dataset.totalCelebrated) return;
+  document.body.dataset.totalCelebrated = '1';
+
+  const layer = document.createElement('div');
+  layer.className = 'confetti-layer confetti-layer-global';
+  layer.style.setProperty('--fall-distance', (window.innerHeight + 36) + 'px');
+
+  for (let i = 0; i < 120; i++) {
+    const p = document.createElement('span');
+    p.className = 'confetti-piece';
+    const duration = 3000 + Math.random() * 1400;
+    p.style.left = (Math.random() * 100) + '%';
+    p.style.background = CONFETTI_COLORS[i % CONFETTI_COLORS.length];
+    p.style.setProperty('--dx', (Math.random() * 160 - 80).toFixed(0) + 'px');
+    p.style.setProperty('--rot', (540 + Math.random() * 540).toFixed(0) + 'deg');
+    p.style.animationDelay = (Math.random() * 800).toFixed(0) + 'ms';
+    p.style.animationDuration = duration.toFixed(0) + 'ms';
+    p.style.animationIterationCount = '1';
+    layer.appendChild(p);
+  }
+
+  document.body.appendChild(layer);
+  window.setTimeout(() => layer.remove(), 5400);
+}
+
 function studentCard(e) {
   const completo = e.completo;
   return `
@@ -139,6 +165,17 @@ fetch('progreso.json?_=' + Date.now())
     document.getElementById('total-meta').textContent = 'de ' + data.total_meta + ' casos válidos en total';
     const pct = Math.min(100, Math.round(100 * data.total_casos_validos / data.total_meta));
     document.getElementById('total-bar').style.width = pct + '%';
+
+    if (data.total_meta > 0 && data.total_casos_validos >= data.total_meta) {
+      const totalCard = document.querySelector('.total-card');
+      totalCard.classList.add('is-complete');
+      const message = document.createElement('div');
+      message.className = 'total-complete-message';
+      message.setAttribute('role', 'status');
+      message.textContent = '\u00a1Meta total alcanzada!';
+      totalCard.appendChild(message);
+      celebrateTotal();
+    }
 
     const cont = document.getElementById('groups');
     data.grupos.forEach(g => cont.appendChild(groupCard(g)));
