@@ -46,19 +46,18 @@ function celebrate(el) {
   el.dataset.celebrated = '1';
   const layer = document.createElement('div');
   layer.className = 'confetti-layer';
-  for (let i = 0; i < 16; i++) {
+  for (let i = 0; i < 36; i++) {
     const p = document.createElement('span');
     p.className = 'confetti-piece';
     p.style.left = (Math.random() * 100) + '%';
     p.style.background = CONFETTI_COLORS[i % CONFETTI_COLORS.length];
     p.style.setProperty('--dx', (Math.random() * 60 - 30).toFixed(0) + 'px');
     p.style.setProperty('--rot', (360 + Math.random() * 360).toFixed(0) + 'deg');
-    p.style.animationDelay = (Math.random() * 250).toFixed(0) + 'ms';
-    p.style.animationDuration = (900 + Math.random() * 500).toFixed(0) + 'ms';
+    p.style.animationDelay = (Math.random() * -3000).toFixed(0) + 'ms';
+    p.style.animationDuration = (1400 + Math.random() * 900).toFixed(0) + 'ms';
     layer.appendChild(p);
   }
   el.appendChild(layer);
-  setTimeout(() => layer.remove(), 1600);
 }
 
 function studentCard(e) {
