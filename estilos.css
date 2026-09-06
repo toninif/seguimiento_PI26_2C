@@ -284,6 +284,33 @@ h1{
 
 .badge.small{font-size:8px}
 
+.group-card,.student-card{position:relative}
+
+.confetti-layer{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:2;
+}
+
+.confetti-piece{
+  position:absolute;
+  top:-12px;
+  width:6px;
+  height:12px;
+  opacity:0;
+  animation-name:confetti-fall;
+  animation-timing-function:ease-in;
+  animation-fill-mode:forwards;
+}
+
+@keyframes confetti-fall{
+  0%{transform:translate(0,0) rotate(0deg);opacity:1}
+  85%{opacity:1}
+  100%{transform:translate(var(--dx,0px),220px) rotate(var(--rot,540deg));opacity:0}
+}
+
 .empty{
   padding:50px 0;
   color:var(--muted);
